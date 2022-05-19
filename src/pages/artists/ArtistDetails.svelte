@@ -16,8 +16,7 @@
     let artist = {};
 
     function getArtist() {
-        axios
-            .get("http://localhost:3001/api/artists/" + id)
+        axios.get("http://localhost:3001/api/artists/" + id)
             .then((response) => {
                 artist = response.data;
             });

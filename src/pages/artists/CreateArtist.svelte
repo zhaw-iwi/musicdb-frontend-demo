@@ -7,8 +7,7 @@
     };
 
     function addArtist() {
-        axios
-            .post("http://localhost:3001/api/artists", artist)
+        axios.post("http://localhost:3001/api/artists", artist)
             .then((response) => {
                 alert("Artist added");
             })
@@ -29,11 +28,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Origin</label>
-            <input
-                class="form-control"
-                type="text"
-                bind:value={artist.origin}
-            />
+            <input class="form-control" type="text" bind:value={artist.origin} />
         </div>
         <button on:click={addArtist} type="button" class="btn btn-primary">
             Add Artist

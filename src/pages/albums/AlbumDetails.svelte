@@ -23,23 +23,22 @@
     let artists = [];
 
     function getAlbum() {
-        axios
-            .get("http://localhost:3001/api/albums/" + album_id)
+        axios.get("http://localhost:3001/api/albums/" + album_id)
             .then((response) => {
                 album = response.data;
             });
     }
 
     function getArtists() {
-        axios.get("http://localhost:3001/api/artists").then((response) => {
-            artists = response.data;
-        });
+        axios.get("http://localhost:3001/api/artists")
+            .then((response) => {
+                artists = response.data;
+            });
     }
 
     function addArtistToAlbum() {
         album.artists.push(artist_id);
-        axios
-            .put("http://localhost:3001/api/albums/" + album_id, album)
+        axios.put("http://localhost:3001/api/albums/" + album_id, album)
             .then((response) => {
                 getAlbum();
             });
@@ -72,7 +71,5 @@
             <option value={artist._id}>{artist.name}</option>
         {/each}
     </select>
-    <button class="btn btn-primary mt-2" on:click={addArtistToAlbum}
-        >Update</button
-    >
+    <button class="btn btn-primary mt-2" on:click={addArtistToAlbum}>Update</button>
 </div>
